@@ -197,8 +197,8 @@ export const companyReferences = [
   {
     avatar: assets.avatars.clients[0],
     company: "Cyber La 22",
-    contact: "Estevan Martínez · CEO",
-    note: "Apoya la comunicación visual y ordena mensajes comerciales para que sean más fáciles de presentar."
+    contact: "Saray Martínez · CEO",
+    note: "Fue de gran ayuda en la automatización de procesos e hizo todo muy fácil de presentar para nuestros clientes."
   },
   {
     avatar: assets.avatars.clients[1],
