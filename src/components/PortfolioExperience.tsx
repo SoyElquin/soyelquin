@@ -241,17 +241,22 @@ function AvatarReferences() {
           <span className="section-kicker">Empresas y referencias</span>
           <h2>Personas y negocios vinculados a mi trabajo.</h2>
         </div>
+
         <div className="reference-grid companies">
           {companyReferences.map((item) => (
             <article className="reference-card company" key={item.company}>
-              <img src={item.avatar} alt="" aria-hidden="true" loading="lazy" />
-              <small>Empresa</small>
+              <div className="company-reference-head">
+                <img src={item.avatar} alt="" aria-hidden="true" loading="lazy" />
+                <small>Empresa</small>
+              </div>
+
               <h3>{item.company}</h3>
               <strong>{item.contact}</strong>
               <p>{item.note}</p>
             </article>
           ))}
         </div>
+
         <div className="reference-grid personal">
           {personalReferences.map((item) => (
             <article className="reference-card personal-ref" key={item.name}>
