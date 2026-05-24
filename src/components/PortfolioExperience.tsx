@@ -62,7 +62,7 @@ function Hero() {
 
   return (
     <section className="hero" id="inicio">
-      <motion.div className="hero-bg-word" style={{ y: titleY }} aria-hidden="true">ELQUIN</motion.div>
+      <motion.div className="hero-bg-word" style={{ y: titleY }} aria-hidden="true">PORTAFOLIO</motion.div>
 
       <div className="hero-copy">
         <motion.div className="eyebrow" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease }}>
