@@ -231,16 +231,21 @@ h1, h2, h3 { font-family: var(--font-syne), var(--font-inter), sans-serif; }
 .reference-grid { margin-top: 22px; display: grid; gap: 14px; }
 .reference-grid.companies { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .reference-grid.personal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.reference-card { min-height: 220px; padding: 20px; border: 1px solid rgba(255,255,255,.09); border-radius: 28px; background: rgba(255,255,255,.04); }
-.reference-card img { width: 62px; height: 62px; object-fit: contain; margin-bottom: 18px; filter: drop-shadow(0 0 20px rgba(255,90,0,.16)); }
-.reference-card small { color: var(--orange-3); text-transform: uppercase; font-weight: 900; letter-spacing: .12em; font-size: 11px; }
-.reference-card h3 { margin: 10px 0 6px; font-size: 24px; line-height: 1.02; letter-spacing: -.02em; }
+.reference-card { min-height: 220px; padding: 24px 22px; border: 1px solid rgba(255,255,255,.09); border-radius: 28px; background: rgba(255,255,255,.04); }
+.company-reference-head { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px; text-align: center; }
+.reference-card.company img { width: 82px; height: 82px; object-fit: contain; display: block; margin: 0 auto; filter: drop-shadow(0 16px 30px rgba(0,0,0,.42)) drop-shadow(0 0 24px rgba(255,90,0,.16)); }
+.reference-card img { width: 82px; height: 82px; object-fit: contain; display: block; margin: 0 auto; filter: drop-shadow(0 16px 30px rgba(0,0,0,.42)) drop-shadow(0 0 24px rgba(255,90,0,.16)); }
+.reference-card.company small { display: block; margin: 0; padding: 0; color: var(--orange-3); text-transform: uppercase; font-weight: 900; letter-spacing: .16em; font-size: 12px; line-height: 1; text-align: center; }
+.reference-card small { display: block; margin: 0; padding: 0; color: var(--orange-3); text-transform: uppercase; font-weight: 900; letter-spacing: .16em; font-size: 12px; line-height: 1; }
+.reference-card h3 { margin: 12px 0 7px; font-size: 24px; line-height: 1.02; letter-spacing: -.02em; }
 .reference-card strong { display: block; color: #eadbcc; font-size: 14px; margin-bottom: 12px; }
 .reference-card p { margin: 0; color: #c7b6a9; line-height: 1.55; font-size: 15px; }
-.personal-ref { min-height: auto; display: flex; align-items: center; gap: 16px; }
-.reference-initials { flex: 0 0 58px; width: 58px; height: 58px; display: grid; place-items: center; border-radius: 18px; color: #170700; background: linear-gradient(135deg, var(--orange), var(--orange-3)); font-weight: 950; box-shadow: 0 0 28px rgba(255,90,0,.20); }
+.reference-card.company h3, .reference-card.company strong, .reference-card.company p { text-align: left; }
+.personal-ref { min-height: auto; display: flex; align-items: center; gap: 18px; }
+.reference-initials { flex: 0 0 68px; width: 68px; height: 68px; display: grid; place-items: center; border-radius: 22px; color: #170700; background: linear-gradient(135deg, var(--orange), var(--orange-3)); font-size: 21px; font-weight: 950; box-shadow: 0 0 34px rgba(255,90,0,.24); }
 .personal-ref h3 { margin: 7px 0 4px; font-size: 22px; }
 .personal-ref a { color: #ffbd86; font-weight: 900; }
+
 
 .contact-section { padding-top: 76px; padding-bottom: 36px; }
 .contact-panel { max-width: var(--max); margin: 0 auto; min-height: 520px; display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 28px; align-items: end; padding: clamp(26px, 5vw, 62px); border-radius: 42px; background: radial-gradient(circle at 82% 10%, rgba(255,90,0,.32), transparent 38%), linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02)), var(--panel-2); overflow: hidden; }
