@@ -35,15 +35,18 @@ export const nav = ["Inicio", "Perfil", "Servicios", "Proceso", "Videos", "Conta
 export const profileCards = [
   {
     title: "Video y edición",
-    text: "Guiones, grabación, edición vertical, subtítulos, ritmo visual y adaptación para Reels, TikTok e historias."
+    text: "Contenido vertical listo para publicar.",
+    points: ["Guion", "Grabación", "Edición", "Subtítulos", "Ritmo visual", "Reels / TikTok"]
   },
   {
     title: "Marketing comercial",
-    text: "Campañas en Meta Ads y TikTok Ads, lectura de métricas, gestión de comunidad y optimización continua."
+    text: "Campañas con lectura clara de resultados.",
+    points: ["Meta Ads", "TikTok Ads", "Métricas", "Comunidad", "Optimización"]
   },
   {
     title: "Venta digital",
-    text: "Marketplace, catálogos, mensajes, piezas promocionales y seguimiento de interesados por redes o WhatsApp."
+    text: "Presencia comercial para activar conversaciones.",
+    points: ["Marketplace", "Catálogos", "Mensajes", "Promociones", "WhatsApp"]
   }
 ];
 
