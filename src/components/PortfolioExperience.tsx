@@ -212,9 +212,14 @@ function ToolStrip() {
   return (
     <section className="tool-section" aria-label="Herramientas de trabajo">
       <div className="tool-panel">
-        <span className="section-kicker">Herramientas</span>
+        <div className="tool-title">
+          <span className="section-kicker">Herramientas</span>
+          <strong>Recursos de trabajo</strong>
+        </div>
         <div className="tool-cloud" aria-label="Herramientas que manejo">
-          {tools.map((tool) => <span key={tool}>{tool}</span>)}
+          {tools.map((tool, index) => (
+            <span key={tool}><em>{String(index + 1).padStart(2, "0")}</em>{tool}</span>
+          ))}
         </div>
       </div>
     </section>
