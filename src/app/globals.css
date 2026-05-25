@@ -853,3 +853,162 @@ h1, h2, h3 { font-family: var(--font-syne), var(--font-inter), sans-serif; }
     animation: none !important;
   }
 }
+
+
+/* Ajuste final solicitado: sin texto de carga, flotantes más visibles y herramientas tipo curriculum */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: #050403;
+}
+.loading-orb {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 138, 34, .32);
+  background: radial-gradient(circle at 35% 28%, rgba(255, 182, 90, .95), rgba(255, 90, 0, .58) 42%, rgba(255, 90, 0, .08) 68%, transparent 70%);
+  box-shadow: 0 0 38px rgba(255, 90, 0, .30);
+  animation: loadingPulse 1.15s ease-in-out infinite;
+}
+@keyframes loadingPulse {
+  0%, 100% { transform: scale(.96); opacity: .72; }
+  50% { transform: scale(1.08); opacity: 1; }
+}
+
+.floating-object {
+  display: block;
+  contain: layout paint;
+  transform: translate3d(0,0,0);
+}
+.floating-object-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  will-change: transform;
+  transform: translate3d(0,0,0);
+  filter: drop-shadow(0 22px 34px rgba(0,0,0,.52));
+}
+.float-star {
+  animation: floatStarAlive 4.8s ease-in-out infinite;
+}
+.float-smile {
+  animation: floatSmileAlive 5.35s ease-in-out infinite;
+}
+@keyframes floatStarAlive {
+  0%, 100% { transform: translate3d(-4px, 4px, 0) rotate(-8deg) scale(1); }
+  25% { transform: translate3d(16px, -18px, 0) rotate(8deg) scale(1.06); }
+  50% { transform: translate3d(3px, -34px, 0) rotate(16deg) scale(1.1); }
+  75% { transform: translate3d(-14px, -12px, 0) rotate(2deg) scale(1.04); }
+}
+@keyframes floatSmileAlive {
+  0%, 100% { transform: translate3d(4px, -3px, 0) rotate(5deg) scale(1); }
+  25% { transform: translate3d(-18px, 18px, 0) rotate(-9deg) scale(1.05); }
+  50% { transform: translate3d(-4px, 34px, 0) rotate(-15deg) scale(1.08); }
+  75% { transform: translate3d(18px, 12px, 0) rotate(3deg) scale(1.04); }
+}
+.object-star { right: 4%; top: 20%; }
+.object-smile { left: -1%; bottom: 40%; }
+
+.tool-section {
+  position: relative;
+  padding: 34px clamp(18px, 5vw, 70px) 78px;
+}
+.tool-section::before {
+  content: "";
+  position: absolute;
+  left: max(clamp(18px, 5vw, 70px), calc((100vw - var(--max)) / 2));
+  right: max(clamp(18px, 5vw, 70px), calc((100vw - var(--max)) / 2));
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,122,20,.42), transparent);
+  pointer-events: none;
+}
+.tool-panel {
+  width: min(var(--max), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(18px, 3vw, 36px);
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.tool-panel > .section-kicker {
+  position: relative;
+  display: block;
+  padding-top: 5px;
+  color: var(--orange-3);
+  opacity: .92;
+}
+.tool-panel > .section-kicker::after {
+  content: "";
+  display: block;
+  width: 54px;
+  height: 2px;
+  margin-top: 14px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--orange), transparent);
+}
+.tool-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  align-items: center;
+  min-width: 0;
+}
+.tool-cloud span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 13px;
+  border: 1px solid rgba(255, 138, 34, .20);
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .022));
+  color: #f0dfcf;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .01em;
+  white-space: nowrap;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+.tool-cloud span:nth-child(3n + 1) {
+  color: #ffcf9b;
+  border-color: rgba(255, 138, 34, .28);
+  background: rgba(255, 90, 0, .075);
+}
+.tool-heading,
+.tool-groups,
+.tool-group {
+  display: contents;
+}
+
+@media (max-width: 760px) {
+  .tool-section { padding: 26px 14px 58px; }
+  .tool-panel {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .tool-cloud { gap: 8px; }
+  .tool-cloud span {
+    min-height: 31px;
+    padding: 0 11px;
+    font-size: 12px;
+  }
+  .object-star { right: -10%; top: 23%; }
+  .object-smile { left: -14%; bottom: 32%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-orb,
+  .float-star,
+  .float-smile {
+    animation: none !important;
+  }
+}
