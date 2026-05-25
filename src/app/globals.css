@@ -1000,3 +1000,89 @@ h1, h2, h3 { font-family: var(--font-syne), var(--font-inter), sans-serif; }
   .tool-cloud span:nth-last-child(-n + 3) { border-bottom: 1px solid rgba(255,255,255,.06); }
   .tool-cloud span:nth-last-child(-n + 2) { border-bottom: 0; }
 }
+
+/* Ajuste final de ritmo visual en escritorio: menos aire entre secciones y malla más presente */
+@media (min-width: 901px) {
+  .site-shell::before {
+    background:
+      linear-gradient(rgba(255, 112, 32, .082) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 112, 32, .066) 1px, transparent 1px),
+      linear-gradient(120deg, transparent 0 48%, rgba(255, 112, 32, .075) 49%, transparent 50%);
+    background-size: 76px 76px, 76px 76px, 210px 210px;
+    mask-image: linear-gradient(180deg, transparent 0 54vh, #000 72vh, #000 94%, transparent 100%);
+    opacity: .98;
+  }
+
+  .hero {
+    min-height: 92svh;
+    padding-bottom: 18px;
+  }
+
+  .hero::after {
+    height: 18%;
+  }
+
+  .section,
+  .profile-section,
+  .process-section,
+  .avatar-section,
+  .contact-section {
+    padding-top: 68px;
+    padding-bottom: 68px;
+  }
+
+  .profile-section {
+    padding-top: 48px;
+  }
+
+  .section-header,
+  .section-header.compact-left {
+    margin-bottom: 28px;
+  }
+
+  .profile-section::before,
+  .services::before,
+  .process-section::before,
+  .videos::before,
+  .avatar-section::before,
+  .contact-section::before {
+    background:
+      linear-gradient(rgba(255, 106, 0, .16) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 106, 0, .12) 1px, transparent 1px);
+    background-size: 46px 46px;
+    opacity: .72;
+  }
+
+  .resume-block,
+  .reference-grid,
+  .profile-grid,
+  .services-grid,
+  .process-grid,
+  .video-grid {
+    gap: 14px;
+  }
+
+  .tool-section {
+    padding-top: 14px;
+    padding-bottom: 54px;
+  }
+
+  .contact-section {
+    padding-top: 58px;
+    padding-bottom: 42px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    min-height: 88svh;
+  }
+
+  .hero-stage {
+    min-height: 590px;
+  }
+
+  .profile-section {
+    padding-top: 38px;
+  }
+}
