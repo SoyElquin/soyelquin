@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
@@ -151,10 +151,9 @@ function Services() {
     <section className="section services" id="servicios">
       <div className="section-header">
         <div>
-          <span className="section-kicker">Servicios</span>
-          <h2>Servicios.</h2>
+          <span className="section-kicker">Oferta</span>
+          <h2>Lo que puedo producir.</h2>
         </div>
-        <p>Producción, edición, pauta y gestión comercial para negocios que venden en redes, WhatsApp, Marketplace o tienda física.</p>
       </div>
       <div className="services-grid">
         {specialties.map((item, index) => {
@@ -201,11 +200,10 @@ function Process() {
   );
 }
 
-function ToolMarquee() {
-  const rows = useMemo(() => [...tools, ...tools], []);
+function ToolStrip() {
   return (
-    <section className="tool-marquee" aria-label="Herramientas">
-      <div className="marquee-row">{rows.map((tool, index) => <span key={`${tool}-${index}`}>{tool}</span>)}</div>
+    <section className="tool-strip" aria-label="Herramientas">
+      {tools.map((tool) => <span key={tool}>{tool}</span>)}
     </section>
   );
 }
@@ -218,7 +216,6 @@ function Videos() {
           <span className="section-kicker">Videos</span>
           <h2>Videos y proyectos.</h2>
         </div>
-        <p>Selección de piezas publicadas. Los enlaces abren cada video directamente en TikTok.</p>
       </div>
       <div className="video-grid">
         {workVideos.map((video, index) => (
@@ -321,7 +318,7 @@ export default function PortfolioExperience() {
           <Profile />
           <Services />
           <Process />
-          <ToolMarquee />
+          <ToolStrip />
           <Videos />
           <AvatarReferences />
           <Contact />

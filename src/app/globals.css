@@ -157,16 +157,11 @@ h1, h2, h3 { font-family: var(--font-syne), var(--font-inter), sans-serif; }
 .hero-stage::before { content: none; display: none; }
 .hero-person-stack { position: relative; z-index: 2; width: min(56vw, 660px); height: auto !important; max-height: none !important; min-width: 340px; object-fit: contain; aspect-ratio: auto; filter: drop-shadow(0 30px 80px rgba(0,0,0,.55)) drop-shadow(0 0 60px rgba(255,90,0,.18)); }
 .floating-object { position: absolute; z-index: 3; pointer-events: none; will-change: transform; filter: drop-shadow(0 18px 30px rgba(0,0,0,.50)); }
-.object-star { right: 5%; top: 24%; width: clamp(82px, 12vw, 150px); animation: starOrbit 10s ease-in-out infinite; transform-origin: center; }
-.object-smile { left: 0; bottom: 42%; width: clamp(70px, 10vw, 125px); animation: smileFloat 11s ease-in-out infinite reverse; transform-origin: center; }
+.object-star { right: 5%; top: 24%; width: clamp(82px, 12vw, 150px); transform-origin: center; }
+.object-smile { left: 0; bottom: 42%; width: clamp(70px, 10vw, 125px); transform-origin: center; }
 .quick-tags { position: absolute; z-index: 8; left: 6%; right: 6%; bottom: 7%; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-.quick-tags span, .tool-marquee span { border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.055); color: #ead9ca; border-radius: 999px; padding: 9px 13px; font-size: 12px; backdrop-filter: blur(12px); }
-@keyframes starOrbit { 0% { transform: translate3d(0,0,0) rotate(0deg) scale(1); } 25% { transform: translate3d(-18px,-22px,40px) rotate(8deg) scale(1.06); } 50% { transform: translate3d(10px,-36px,70px) rotate(-6deg) scale(1.12); } 75% { transform: translate3d(22px,-12px,30px) rotate(10deg) scale(1.04); } 100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); } }
-@keyframes smileFloat { 0% { transform: translate3d(0,0,0) rotate(0deg) scale(1); } 30% { transform: translate3d(22px,-18px,35px) rotate(-7deg) scale(1.08); } 60% { transform: translate3d(-12px,-34px,55px) rotate(5deg) scale(1.13); } 100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); } }
-@media (max-width: 768px) { .hero-stage { min-height: 560px; place-items: end center; } .hero-person-stack { width: min(118vw, 620px); height: auto; min-width: 0; } .hero-stage::before { content: none; display: none; } .quick-tags { bottom: 4%; gap: 7px; } .quick-tags span, .tool-marquee span { padding: 7px 10px; font-size: 11px; } .object-star { right: -5%; top: 24%; animation: starOrbitMobile 6.5s ease-in-out infinite; } .object-smile { left: -7%; bottom: 46%; animation: smileFloatMobile 7.5s ease-in-out infinite reverse; } }
-@keyframes starOrbitMobile { 0%, 100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); } 50% { transform: translate3d(-10px,-22px,20px) rotate(7deg) scale(1.06); } }
-@keyframes smileFloatMobile { 0%, 100% { transform: translate3d(0,0,0) rotate(0deg) scale(1); } 50% { transform: translate3d(14px,-18px,20px) rotate(-6deg) scale(1.07); } }
-@media (prefers-reduced-motion: reduce) { .floating-object, .hero-stage::before { animation: none !important; } }
+.quick-tags span, .tool-strip span { border: 1px solid rgba(255,255,255,.10); background: rgba(255,255,255,.055); color: #ead9ca; border-radius: 999px; padding: 9px 13px; font-size: 12px; backdrop-filter: blur(12px); }
+@media (max-width: 768px) { .hero-stage { min-height: 560px; place-items: end center; } .hero-person-stack { width: min(118vw, 620px); height: auto; min-width: 0; } .hero-stage::before { content: none; display: none; } .quick-tags { bottom: 4%; gap: 7px; } .quick-tags span, .tool-strip span { padding: 7px 10px; font-size: 11px; } .object-star { right: -5%; top: 24%; } .object-smile { left: -7%; bottom: 46%; } }
 .section, .profile-section, .process-section, .avatar-section, .contact-section { position: relative; isolation: isolate; padding: 94px clamp(18px, 5vw, 70px); }
 .profile-section::before, .services::before, .process-section::before, .videos::before, .avatar-section::before, .contact-section::before {
   content: "";
@@ -184,6 +179,7 @@ h1, h2, h3 { font-family: var(--font-syne), var(--font-inter), sans-serif; }
 .services::before, .videos::before { mask-image: radial-gradient(circle at 20% 20%, #000 0 16%, transparent 44%); }
 
 .section-header { max-width: var(--max); margin: 0 auto 38px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 400px); gap: 28px; align-items: end; }
+.section-header > div:only-child { grid-column: 1 / -1; max-width: 780px; }
 .section-header.compact-left { display: block; max-width: var(--max); margin-bottom: 34px; }
 .section-header h2, .section-header.compact-left h2, .contact-panel h2, .avatar-copy h2 { margin: 14px 0 0; font-size: clamp(36px, 4.8vw, 68px); font-weight: 950; line-height: .94; letter-spacing: -.045em; text-wrap: balance; }
 .section-header p, .section-header.compact-left p, .contact-panel p, .avatar-copy p { margin: 0; color: #bfaea1; line-height: 1.66; font-size: 16px; }
@@ -226,15 +222,14 @@ h1, h2, h3 { font-family: var(--font-syne), var(--font-inter), sans-serif; }
 .service-card p, .process-step p { margin: 13px 0 0; color: #bfaea1; line-height: 1.55; }
 
 .process-section { max-width: var(--max); margin: 0 auto; overflow: hidden; }
-.process-visual { position: absolute; right: clamp(18px, 6vw, 80px); top: 68px; width: clamp(80px, 14vw, 180px); opacity: .55; filter: drop-shadow(0 0 42px rgba(255,90,0,.32)); animation: hoverFloat 7s ease-in-out infinite; }
+.process-visual { position: absolute; right: clamp(18px, 6vw, 80px); top: 68px; width: clamp(80px, 14vw, 180px); opacity: .45; filter: drop-shadow(0 0 34px rgba(255,90,0,.24)); }
 .process-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
 .process-step { min-height: 250px; padding: 24px; border-radius: var(--radius); }
 .process-step > span { color: var(--orange-3); font-weight: 950; letter-spacing: .16em; }
 .process-step svg { color: var(--orange-2); margin: 34px 0 18px; }
 
-.tool-marquee { display: grid; gap: 14px; padding: 34px 0; border-block: 1px solid rgba(255,255,255,.08); overflow: hidden; background: rgba(255,255,255,.025); }
-.marquee-row { display: flex; gap: 12px; width: max-content; animation: marquee 36s linear infinite; }
-.tool-marquee span { white-space: nowrap; border-color: rgba(255,90,0,.16); background: rgba(255,90,0,.08); font-family: var(--font-space), var(--font-inter), sans-serif; font-size: 13px; letter-spacing: .08em; }
+.tool-strip { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; padding: 34px clamp(18px, 5vw, 70px); border-block: 1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.025); }
+.tool-strip span { white-space: nowrap; border-color: rgba(255,90,0,.16); background: rgba(255,90,0,.08); font-family: var(--font-space), var(--font-inter), sans-serif; font-size: 13px; letter-spacing: .08em; }
 
 .video-grid { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
 .video-card { position: relative; display: block; min-height: 430px; border-radius: 32px; overflow: hidden; color: var(--text); transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease; }
@@ -287,10 +282,8 @@ h1, h2, h3 { font-family: var(--font-syne), var(--font-inter), sans-serif; }
 .contact-links a, .contact-links span { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 14px 15px; border: 1px solid rgba(255,255,255,.10); border-radius: 18px; background: rgba(255,255,255,.05); color: #ebded4; overflow-wrap: anywhere; }
 .footer { padding: 26px clamp(18px, 5vw, 70px) 42px; color: var(--dim); font-size: 13px; text-align: center; }
 
-@keyframes pageIntro { from { opacity: 0; filter: blur(6px); transform: translate3d(0,10px,0); } to { opacity: 1; filter: blur(0); transform: translate3d(0,0,0); } }
+@keyframes pageIntro { from { opacity: 0; filter: blur(3px); transform: translate3d(0,8px,0); } to { opacity: 1; filter: blur(0); transform: translate3d(0,0,0); } }
 @keyframes spin { to { transform: rotate(360deg); } }
-@keyframes hoverFloat { 0%, 100% { transform: translate3d(0,0,0) rotate(-4deg); } 50% { transform: translate3d(0,-18px,0) rotate(5deg); } }
-@keyframes marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-50%,0,0); } }
 
 @media (max-width: 1080px) {
   .hero, .section-header, .profile-grid, .resume-block, .contact-panel { grid-template-columns: 1fr; }
