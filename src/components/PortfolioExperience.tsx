@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import Lenis from "@studio-freight/lenis";
+import Lenis from "lenis";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
 import CursorGlow from "@/components/CursorGlow";
@@ -25,7 +25,7 @@ function TopNav() {
   return (
     <header className="top-nav">
       <a href="#inicio" className="brand-mark" aria-label="Ir al inicio">
-        <span className="brand-avatar"><img src={assets.avatars.me} alt="" aria-hidden="true" /></span>
+        <span className="brand-avatar"><img src={assets.avatars.me} width={64} height={64} alt="" aria-hidden="true" /></span>
         <span className="brand-copy">
           <strong>Elquin</strong>
           <small>Editor audiovisual y marketing</small>
@@ -55,14 +55,13 @@ function TopNav() {
 
 function Hero() {
   const { scrollYProgress } = useScroll();
-  const titleY = useTransform(scrollYProgress, [0, 0.18], [0, -120]);
-  const personY = useTransform(scrollYProgress, [0, 0.2], [0, 72]);
-  const starY = useTransform(scrollYProgress, [0, 0.24], [0, -150]);
-  const sweepX = useTransform(scrollYProgress, [0, 0.16], ["-36%", "44%"]);
+  const titleY = useTransform(scrollYProgress, [0, 0.22], [0, -190]);
+  const titleX = useTransform(scrollYProgress, [0, 0.22], [0, 42]);
+  const personY = useTransform(scrollYProgress, [0, 0.22], [0, 82]);
 
   return (
     <section className="hero" id="inicio">
-      <motion.div className="hero-bg-word" style={{ y: titleY }} aria-hidden="true">PORTAFOLIO</motion.div>
+      <motion.div className="hero-bg-word" style={{ y: titleY, x: titleX }} aria-hidden="true">PORTAFOLIO</motion.div>
 
       <div className="hero-copy">
         <motion.div className="eyebrow" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease }}>
@@ -81,10 +80,10 @@ function Hero() {
       </div>
 
       <motion.div className="hero-stage" style={{ y: personY }}>
-        <motion.div className="hero-light-sweep" style={{ x: sweepX }} aria-hidden="true" />
-        <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} alt="Retrato creativo de Elquin Hernández" initial={{ opacity: 0, scale: .96, y: 54 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, delay: .16, ease }} />
-        <motion.img className="floating-object object-star" style={{ y: starY }} src={assets.objects.asterisk} alt="" aria-hidden="true" />
-        <motion.img className="floating-object object-smile" style={{ y: starY }} src={assets.objects.smileOrb} alt="" aria-hidden="true" />
+        <motion.div className="hero-light-sweep" aria-hidden="true" />
+        <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} width={1122} height={1602} alt="Retrato creativo de Elquin Hernández" fetchPriority="high" initial={{ opacity: 0, scale: .96, y: 54 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, delay: .16, ease }} />
+        <motion.img className="floating-object object-star" src={assets.objects.asterisk} width={491} height={737} alt="" aria-hidden="true" />
+        <motion.img className="floating-object object-smile" src={assets.objects.smileOrb} width={491} height={737} alt="" aria-hidden="true" />
         <div className="quick-tags" aria-label="Especialidades rápidas">
           <span>Guion</span><span>Edición</span><span>Pauta</span><span>Marketplace</span>
         </div>
@@ -104,7 +103,7 @@ function Profile() {
 
       <div className="profile-grid">
         <article className="portrait-card">
-          <img src={assets.portraits.sideNeonFade} alt="Elquin Hernández con iluminación naranja" />
+          <img src={assets.portraits.sideNeonFade} width={1086} height={1448} alt="Elquin Hernández con iluminación naranja" loading="lazy" />
           <div>
             <strong>{profile.shortName}</strong>
             <span>{profile.city}</span>
@@ -171,7 +170,7 @@ function Process() {
   return (
     <section className="process-section" id="proceso">
       <div className="process-visual" aria-hidden="true">
-        <img src={assets.objects.asterisk} alt="" />
+        <img src={assets.objects.asterisk} width={491} height={737} alt="" />
       </div>
       <div className="section-header compact-left">
         <span className="section-kicker">Proceso</span>
@@ -217,7 +216,7 @@ function Videos() {
       <div className="video-grid">
         {workVideos.map((video, index) => (
           <motion.a className="video-card" key={video.id} href={tikTokUrl(video.handle, video.id)} target="_blank" rel="noreferrer" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .16 }} transition={{ duration: .55, delay: index * .035, ease }}>
-            <img src={video.image} alt="" aria-hidden="true" loading="lazy" />
+            <img src={video.image} width={900} height={1200} alt="" aria-hidden="true" loading="lazy" />
             <span className="video-card-shade" />
             <span className="video-index">{String(index + 1).padStart(2, "0")}</span>
             <span className="video-info">
@@ -246,7 +245,7 @@ function AvatarReferences() {
           {companyReferences.map((item) => (
             <article className="reference-card company" key={item.company}>
               <div className="company-reference-head">
-                <img src={item.avatar} alt="" aria-hidden="true" loading="lazy" />
+                <img src={item.avatar} width={100} height={100} alt="" aria-hidden="true" loading="lazy" />
                 <small>Empresa</small>
               </div>
 

@@ -21,6 +21,10 @@ export default function SceneCanvas() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
+    const smallViewport = window.innerWidth < 820;
+    if (coarsePointer || smallViewport) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
@@ -40,13 +44,13 @@ export default function SceneCanvas() {
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.min(120, Math.max(46, Math.floor((width * height) / 16000)));
+      const count = Math.min(54, Math.max(24, Math.floor((width * height) / 36000)));
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
         y: Math.random() * height,
         z: Math.random(),
-        vx: (Math.random() - 0.5) * 0.24,
-        vy: (Math.random() - 0.5) * 0.18,
+        vx: (Math.random() - 0.5) * 0.16,
+        vy: (Math.random() - 0.5) * 0.12,
         size: Math.random() * 1.7 + 0.35,
         hue: 24 + Math.random() * 26
       }));
@@ -59,9 +63,9 @@ export default function SceneCanvas() {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
       const scroll = window.scrollY || 0;
-      const gradient = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 460);
-      gradient.addColorStop(0, "rgba(255, 102, 0, .16)");
-      gradient.addColorStop(0.42, "rgba(255, 102, 0, .035)");
+      const gradient = ctx.createRadialGradient(pointer.x, pointer.y, 0, pointer.x, pointer.y, 360);
+      gradient.addColorStop(0, "rgba(255, 102, 0, .09)");
+      gradient.addColorStop(0.42, "rgba(255, 102, 0, .022)");
       gradient.addColorStop(1, "rgba(255, 102, 0, 0)");
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, width, height);
@@ -81,7 +85,7 @@ export default function SceneCanvas() {
         const dy = p.y - pointer.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
         const near = Math.max(0, 1 - dist / 220);
-        const alpha = 0.16 + p.z * 0.32 + near * 0.5;
+        const alpha = 0.10 + p.z * 0.22 + near * 0.32;
         ctx.beginPath();
         ctx.fillStyle = `hsla(${p.hue}, 100%, ${58 + p.z * 16}%, ${alpha})`;
         ctx.arc(p.x, p.y, p.size + near * 2.5, 0, Math.PI * 2);

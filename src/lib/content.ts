@@ -189,7 +189,7 @@ export const workVideos = [
     title: "Capibaras peluche",
     category: "Humor + venta",
     focus: "Formato memorable para producto comercial.",
-    image: assets.work[8]
+    image: assets.work[5]
   }
 ];
 

@@ -14,8 +14,7 @@ export const assets = {
     clients: [
       "/assets/avatars/avatar-1.webp",
       "/assets/avatars/avatar-2.webp",
-      "/assets/avatars/avatar-3.webp",
-      "/assets/avatars/avatar-4.webp"
+      "/assets/avatars/avatar-3.webp"
     ]
   },
   system: {
@@ -28,15 +27,12 @@ export const assets = {
     haloMap: "/assets/system/orange-halo-map.png"
   },
   work: [
-    "/assets/work/work-card-1.jpg",
-    "/assets/work/work-card-2.jpg",
-    "/assets/work/work-card-3.jpg",
-    "/assets/work/work-card-4.jpg",
-    "/assets/work/work-card-5.jpg",
-    "/assets/work/work-card-6.jpg",
-    "/assets/work/work-card-7.jpg",
-    "/assets/work/work-card-8.jpg",
-    "/assets/work/work-card-9.jpg"
+    "/assets/work/work-card-1.webp",
+    "/assets/work/work-card-2.webp",
+    "/assets/work/work-card-3.webp",
+    "/assets/work/work-card-4.webp",
+    "/assets/work/work-card-5.webp",
+    "/assets/work/work-card-6.webp"
   ]
 } as const;
 
