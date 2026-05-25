@@ -187,9 +187,11 @@ function Process() {
         {method.map((step, index) => {
           const Icon = step.icon;
           return (
-            <motion.article className="process-step" key={step.title} initial={{ opacity: 0, y: 26 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .35 }} transition={{ duration: .6, delay: index * .05, ease }}>
-              <span>{step.kicker}</span>
-              <Icon size={26} />
+            <motion.article className="process-step" key={step.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .35 }} transition={{ duration: .55, delay: index * .04, ease }}>
+              <div className="process-step-head">
+                <span>{step.kicker}</span>
+                <Icon size={22} />
+              </div>
               <h3>{step.title}</h3>
               <p>{step.text}</p>
             </motion.article>
@@ -280,24 +282,18 @@ function AvatarReferences() {
 function Contact() {
   return (
     <section className="contact-section" id="contacto">
-      <motion.div className="contact-panel" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={{ duration: .68, ease }}>
-        <div className="contact-mark" aria-hidden="true">
-          <img className="contact-apple-icon" src={assets.system.appleIcon} alt="" loading="lazy" decoding="async" />
-        </div>
-
+      <motion.div className="contact-panel" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={{ duration: .62, ease }}>
         <div className="contact-copy">
           <span className="section-kicker">Contacto</span>
-          <h2>Conversemos sobre tu próximo video o campaña.</h2>
-          <p>Cuéntame qué quieres vender, mostrar o promocionar. Lo convertimos en contenido claro para redes.</p>
+          <div className="contact-title-row">
+            <img className="contact-apple-icon" src={assets.system.appleIcon} alt="Icono del portafolio" loading="lazy" decoding="async" />
+            <h2>Conversemos sobre tu próximo video o campaña.</h2>
+          </div>
         </div>
 
-        <div className="contact-actions" aria-label="Acciones de contacto">
+        <div className="contact-action">
+          <p>Cuéntame qué necesitas vender, mostrar o anunciar. Te respondo directo por WhatsApp.</p>
           <a className="button primary huge" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">Escríbeme por WhatsApp <ArrowUpRight /></a>
-          <div className="contact-chips" aria-label="Áreas de trabajo">
-            <span>Video</span>
-            <span>Pauta</span>
-            <span>Marketplace</span>
-          </div>
         </div>
 
         <div className="contact-links">
