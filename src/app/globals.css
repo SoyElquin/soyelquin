@@ -155,7 +155,7 @@ h1, h2, h3 { font-family: var(--font-syne), var(--font-inter), sans-serif; }
 .hero-stage { position: relative; z-index: 4; min-height: 640px; display: grid; place-items: end center; perspective: 1400px; overflow: hidden; }
 .hero-stage::before { content: none; display: none; }
 .hero-stage::after { content: ""; position: absolute; left: 8%; right: 8%; bottom: 0; height: 150px; z-index: 1; background: linear-gradient(180deg, rgba(5,4,3,0) 0%, rgba(5,4,3,.16) 42%, rgba(5,4,3,.55) 100%); pointer-events: none; }
-.hero-person-stack { position: relative; z-index: 2; display: block; width: min(64vw, 760px); height: auto; min-width: 370px; object-fit: contain; filter: drop-shadow(0 30px 80px rgba(0,0,0,.55)) drop-shadow(0 0 60px rgba(255,90,0,.18)); }
+.hero-person-stack { position: relative; z-index: 2; width: min(56vw, 660px); height: auto !important; max-height: none !important; min-width: 340px; object-fit: contain; aspect-ratio: auto; filter: drop-shadow(0 30px 80px rgba(0,0,0,.55)) drop-shadow(0 0 60px rgba(255,90,0,.18)); }
 .hero-light-sweep { position: absolute; top: 4%; left: 12%; z-index: 5; width: 24%; height: 80%; background: linear-gradient(90deg, transparent, rgba(255,111,0,.22), transparent); filter: blur(18px); transform: skewX(-12deg); mix-blend-mode: screen; pointer-events: none; animation: lightTravel 8s ease-in-out infinite; }
 .floating-object { position: absolute; z-index: 3; pointer-events: none; will-change: transform, filter, opacity; filter: drop-shadow(0 18px 34px rgba(0,0,0,.55)) drop-shadow(0 0 36px rgba(255,90,0,.24)); }
 .object-star { right: 5%; top: 24%; width: clamp(82px, 12vw, 150px); animation: starOrbit 7s ease-in-out infinite; transform-origin: center; }
