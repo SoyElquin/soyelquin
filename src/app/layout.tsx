@@ -68,6 +68,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${inter.variable} ${display.variable} ${space.variable}`}>
+      <head>
+        <link rel="preload" as="image" href="/assets/portraits/elquin-head-stack-fade-mobile.webp" media="(max-width: 560px)" />
+        <link rel="preload" as="image" href="/assets/portraits/elquin-head-stack-fade-desktop.webp" media="(min-width: 561px)" />
+      </head>
       <body>{children}</body>
     </html>
   );

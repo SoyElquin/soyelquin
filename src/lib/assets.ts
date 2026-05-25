@@ -1,6 +1,7 @@
 export const assets = {
   portraits: {
-    headStackFade: "/assets/portraits/elquin-head-stack-fade.webp",
+    headStackFade: "/assets/portraits/elquin-head-stack-fade-desktop.webp",
+    headStackFadeMobile: "/assets/portraits/elquin-head-stack-fade-mobile.webp",
     headStackOriginal: "/assets/portraits/elquin-head-stack-original.webp",
     sideNeonFade: "/assets/portraits/elquin-side-neon-fade.webp",
     sideNeonOriginal: "/assets/portraits/elquin-side-neon-original.webp"

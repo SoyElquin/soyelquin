@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Lenis from "lenis";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
 import CursorGlow from "@/components/CursorGlow";
@@ -64,26 +63,25 @@ function Hero() {
       <motion.div className="hero-bg-word" style={{ y: titleY, x: titleX }} aria-hidden="true">PORTAFOLIO</motion.div>
 
       <div className="hero-copy">
-        <motion.div className="eyebrow" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease }}>
+        <div className="eyebrow">
           <Sparkles size={16} /> {profile.heroLine}
-        </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .08, ease }}>
-          {profile.heroTitle}
-        </motion.h1>
-        <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .16, ease }}>
-          {profile.manifesto}
-        </motion.p>
-        <motion.div className="hero-actions" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .24, ease }}>
+        </div>
+        <h1>{profile.heroTitle}</h1>
+        <p>{profile.manifesto}</p>
+        <div className="hero-actions">
           <a className="button primary" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">{profile.ctaPrimary}<ArrowUpRight size={18} /></a>
           <a className="button secondary" href="#videos">{profile.ctaSecondary}<ChevronDown size={18} /></a>
-        </motion.div>
+        </div>
       </div>
 
       <motion.div className="hero-stage" style={{ y: personY }}>
-        <motion.div className="hero-light-sweep" aria-hidden="true" />
-        <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} width={1122} height={1602} alt="Retrato creativo de Elquin Hernández" fetchPriority="high" initial={{ opacity: 0, scale: .96, y: 54 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: 1, delay: .16, ease }} />
-        <motion.img className="floating-object object-star" src={assets.objects.asterisk} width={491} height={737} alt="" aria-hidden="true" />
-        <motion.img className="floating-object object-smile" src={assets.objects.smileOrb} width={491} height={737} alt="" aria-hidden="true" />
+        <div className="hero-light-sweep" aria-hidden="true" />
+        <picture className="hero-person-picture">
+          <source media="(max-width: 560px)" srcSet={assets.portraits.headStackFadeMobile} />
+          <img className="hero-person-stack" src={assets.portraits.headStackFade} width={900} height={1285} alt="Retrato creativo de Elquin Hernández" fetchPriority="high" loading="eager" decoding="async" />
+        </picture>
+        <img className="floating-object object-star" src={assets.objects.asterisk} width={240} height={360} alt="" aria-hidden="true" loading="eager" decoding="async" />
+        <img className="floating-object object-smile" src={assets.objects.smileOrb} width={240} height={360} alt="" aria-hidden="true" loading="eager" decoding="async" />
         <div className="quick-tags" aria-label="Especialidades rápidas">
           <span>Guion</span><span>Edición</span><span>Pauta</span><span>Marketplace</span>
         </div>
@@ -103,7 +101,7 @@ function Profile() {
 
       <div className="profile-grid">
         <article className="portrait-card">
-          <img src={assets.portraits.sideNeonFade} width={1086} height={1448} alt="Elquin Hernández con iluminación naranja" loading="lazy" />
+          <img src={assets.portraits.sideNeonFade} width={720} height={960} alt="Elquin Hernández con iluminación naranja" loading="lazy" decoding="async" />
           <div>
             <strong>{profile.shortName}</strong>
             <span>{profile.city}</span>
@@ -294,20 +292,6 @@ function Contact() {
 }
 
 export default function PortfolioExperience() {
-  useEffect(() => {
-    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.86, smoothWheel: true });
-    let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    };
-    frame = requestAnimationFrame(raf);
-    return () => {
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-    };
-  }, []);
-
   return (
     <>
       <ScrollMeter />
