@@ -22,7 +22,7 @@ export const profile = {
   instagram: "@elquin.hernndez8",
   marketplaceInstagram: "@ropa.elmejorprecio",
   currentPortfolio: "soyelquin.vercel.app",
-  heroLine: "Bienvenido, mi nombre es",
+  heroLine: "Productor audiovisual y marketing",
   heroTitle: "Elquin Hernández",
   manifesto:
     "Productor audiovisual y estratega de marketing en Montería. Creo contenido vertical, piezas comerciales, campañas y publicaciones para negocios que necesitan comunicar mejor, mostrar sus productos con claridad y convertir redes sociales en oportunidades de venta.",
@@ -125,45 +125,21 @@ export const tools = [
 export const timeline = [
   {
     period: "2026 — Actualidad",
-    label: "Independiente",
-    role: "Marketing digital y diseño comercial",
-    detail: "Gestión de contenido, pauta, piezas comerciales, Marketplace, mensajes, automatizaciones y presencia digital para negocios que venden en redes.",
-    highlights: ["Estrategia", "Contenido", "Pauta", "Marketplace"]
+    role: "Independiente en marketing digital y diseño comercial",
+    detail: "Estrategia digital, contenido, pauta, diseño comercial, Marketplace, automatizaciones, mensajes y presencia digital."
   },
   {
     period: "2025 — 2026",
-    label: "Retail",
     role: "Diseñador y creador de contenido digital",
-    detail: "Creación de catálogos mayoristas, campañas, publicaciones comerciales, videos verticales y piezas orientadas a retención y conversión.",
-    highlights: ["Catálogos", "Reels", "Promociones", "Venta"]
+    detail: "Catálogos mayoristas, campañas, publicaciones en Marketplace, videos verticales y piezas orientadas a retención y conversión."
   }
 ];
 
 export const education = [
-  {
-    program: "Programación de Software",
-    institution: "SENA",
-    type: "Técnico",
-    detail: "Base técnica para comprender sistemas, estructura digital y desarrollo de soluciones."
-  },
-  {
-    program: "Programación Web",
-    institution: "Universidad de Caldas",
-    type: "Diplomado",
-    detail: "Formación enfocada en aplicaciones web, lógica digital y presencia online."
-  },
-  {
-    program: "Sistemas",
-    institution: "SENA",
-    type: "Técnico",
-    detail: "Fundamentos de soporte, herramientas digitales, procesos y operación tecnológica."
-  },
-  {
-    program: "IA, negocios en línea y herramientas digitales",
-    institution: "Formación complementaria",
-    type: "Actualización",
-    detail: "Aprendizaje continuo aplicado a contenido, automatización, análisis y comunicación comercial."
-  }
+  "Técnico en Programación de Software — SENA",
+  "Diplomado en Programación Web — Universidad de Caldas",
+  "Técnico en Sistemas — SENA",
+  "Formación en inteligencia artificial, negocios en línea y herramientas digitales"
 ];
 
 export const workVideos = [
