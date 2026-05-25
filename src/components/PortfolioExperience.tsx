@@ -3,8 +3,6 @@
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
-import CursorGlow from "@/components/CursorGlow";
-import SceneCanvas from "@/components/SceneCanvas";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { companyReferences, education, method, nav, personalReferences, profile, profileCards, specialties, timeline, tools, workVideos } from "@/lib/content";
 import { assets } from "@/lib/assets";
@@ -56,8 +54,6 @@ function Hero() {
   const { scrollYProgress } = useScroll();
   const titleY = useTransform(scrollYProgress, [0, 0.22], [0, -170]);
   const personY = useTransform(scrollYProgress, [0, 0.2], [0, 72]);
-  const starY = useTransform(scrollYProgress, [0, 0.24], [0, -150]);
-  const sweepX = useTransform(scrollYProgress, [0, 0.16], ["-36%", "44%"]);
 
   return (
     <section className="hero" id="inicio">
@@ -67,7 +63,7 @@ function Hero() {
         <motion.div className="eyebrow" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease }}>
           <Sparkles size={16} /> {profile.heroLine}
         </motion.div>
-        <motion.h1 initial={false}>
+        <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .82, delay: .08, ease }}>
           {profile.heroTitle}
         </motion.h1>
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .16, ease }}>
@@ -79,11 +75,15 @@ function Hero() {
         </motion.div>
       </div>
 
-      <motion.div className="hero-stage" style={{ y: personY }}>
-        <motion.div className="hero-light-sweep" style={{ x: sweepX }} aria-hidden="true" />
-        <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} alt="Retrato creativo de Elquin Hernández" loading="eager" fetchPriority="high" decoding="async" initial={false} />
-        <motion.img className="floating-object object-star" style={{ y: starY }} src={assets.objects.asterisk} alt="" aria-hidden="true" width={180} height={180} decoding="async" />
-        <motion.img className="floating-object object-smile" style={{ y: starY }} src={assets.objects.smileOrb} alt="" aria-hidden="true" width={160} height={160} decoding="async" />
+      <motion.div className="hero-stage" style={{ y: personY }} initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .9, delay: .18, ease }}>
+        <div className="hero-design-grid" aria-hidden="true" />
+        <div className="hero-static-orb orb-one" aria-hidden="true" />
+        <div className="hero-static-orb orb-two" aria-hidden="true" />
+        <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} alt="Retrato creativo de Elquin Hernández" loading="eager" fetchPriority="high" decoding="async" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .85, delay: .28, ease }} />
+        <img className="floating-object object-star" src={assets.objects.asterisk} alt="" aria-hidden="true" width={180} height={180} decoding="async" />
+        <img className="floating-object object-smile" src={assets.objects.smileOrb} alt="" aria-hidden="true" width={160} height={160} decoding="async" />
+        <div className="hero-metric-card metric-top" aria-hidden="true"><strong>Contenido</strong><span>vertical que conecta</span></div>
+        <div className="hero-metric-card metric-bottom" aria-hidden="true"><strong>Pauta + ventas</strong><span>criterio comercial</span></div>
         <div className="quick-tags" aria-label="Especialidades rápidas">
           <span>Guion</span><span>Edición</span><span>Pauta</span><span>Marketplace</span>
         </div>
@@ -305,8 +305,6 @@ export default function PortfolioExperience() {
   return (
     <>
       <ScrollMeter />
-      <SceneCanvas />
-      <CursorGlow />
       <div className="site-shell">
         <TopNav />
         <main>
