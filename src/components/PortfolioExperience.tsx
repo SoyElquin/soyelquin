@@ -116,6 +116,8 @@ function Profile() {
         ))}
       </div>
 
+      <div className="section-divider" aria-hidden="true"><span>Trayectoria y formación</span></div>
+
       <div className="resume-block">
         <div className="resume-panel resume-experience">
           <div className="resume-heading">
@@ -203,9 +205,31 @@ function Process() {
 }
 
 function ToolStrip() {
+  const toolGroups = [
+    { title: "Pauta", items: tools.slice(0, 2) },
+    { title: "Gestión", items: tools.slice(2, 5) },
+    { title: "Diseño", items: tools.slice(5, 8) },
+    { title: "Operación", items: tools.slice(8) }
+  ];
+
   return (
-    <section className="tool-strip" aria-label="Herramientas">
-      {tools.map((tool) => <span key={tool}>{tool}</span>)}
+    <section className="tool-section" aria-label="Herramientas de trabajo">
+      <div className="tool-panel">
+        <div className="tool-heading">
+          <span className="section-kicker">Herramientas</span>
+          <h2>Stack práctico para producir, publicar y medir.</h2>
+        </div>
+        <div className="tool-groups">
+          {toolGroups.map((group) => (
+            <article className="tool-group" key={group.title}>
+              <strong>{group.title}</strong>
+              <div>
+                {group.items.map((tool) => <span key={tool}>{tool}</span>)}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }
@@ -284,16 +308,18 @@ function Contact() {
     <section className="contact-section" id="contacto">
       <motion.div className="contact-panel" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={{ duration: .62, ease }}>
         <div className="contact-copy">
-          <span className="section-kicker">Contacto</span>
+          <span className="section-kicker">Contacto directo</span>
           <div className="contact-title-row">
             <img className="contact-apple-icon" src={assets.system.appleIcon} alt="Icono del portafolio" loading="lazy" decoding="async" />
-            <h2>Conversemos sobre tu próximo video o campaña.</h2>
+            <h2>Haz que tu producto se vea listo para vender.</h2>
           </div>
         </div>
 
         <div className="contact-action">
-          <p>Cuéntame qué necesitas vender, mostrar o anunciar. Te respondo directo por WhatsApp.</p>
-          <a className="button primary huge" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">Escríbeme por WhatsApp <ArrowUpRight /></a>
+          <span>Respuesta por WhatsApp</span>
+          <strong>Envíame tu idea, producto o negocio.</strong>
+          <p>Te digo qué pieza conviene crear primero y cómo moverla en redes.</p>
+          <a className="button primary huge" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">Enviar proyecto <ArrowUpRight /></a>
         </div>
 
         <div className="contact-links">
