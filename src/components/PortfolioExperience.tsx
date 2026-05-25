@@ -4,7 +4,7 @@ import { useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
-import { companyReferences, education, method, nav, personalReferences, profile, profileCards, specialties, timeline, workVideos } from "@/lib/content";
+import { companyReferences, education, method, nav, personalReferences, profile, profileCards, specialties, timeline, tools, workVideos } from "@/lib/content";
 import { assets } from "@/lib/assets";
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -79,10 +79,10 @@ function Hero() {
       <motion.div className="hero-stage" style={{ y: personY }} initial={{ opacity: 0, scale: .985 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .9, delay: .18, ease }}>
         <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} alt="Retrato creativo de Elquin Hernández" loading="eager" fetchPriority="high" decoding="async" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .28, ease }} />
         <motion.div className="floating-object object-star" style={{ y: starY }} aria-hidden="true">
-          <img className="float-soft float-soft-a" src={assets.objects.asterisk} alt="" width={180} height={180} decoding="async" />
+          <img className="floating-object-img float-star" src={assets.objects.asterisk} alt="" width={180} height={180} decoding="async" />
         </motion.div>
         <motion.div className="floating-object object-smile" style={{ y: starY }} aria-hidden="true">
-          <img className="float-soft float-soft-b" src={assets.objects.smileOrb} alt="" width={160} height={160} decoding="async" />
+          <img className="floating-object-img float-smile" src={assets.objects.smileOrb} alt="" width={160} height={160} decoding="async" />
         </motion.div>
         <div className="quick-tags" aria-label="Especialidades rápidas">
           <span>Guion</span><span>Edición</span><span>Pauta</span><span>Marketplace</span>
@@ -209,15 +209,12 @@ function Process() {
 }
 
 function ToolStrip() {
-  const support = ["Producción", "Publicación", "Medición"];
-
   return (
-    <section className="tool-section tool-section-quiet" aria-label="Apoyo digital">
-      <div className="tool-quiet-line">
-        <span className="section-kicker">Apoyo digital</span>
-        <p>Las herramientas acompañan el proceso; el resultado es la pieza.</p>
-        <div aria-hidden="true">
-          {support.map((item) => <em key={item}>{item}</em>)}
+    <section className="tool-section" aria-label="Herramientas de trabajo">
+      <div className="tool-panel">
+        <span className="section-kicker">Herramientas</span>
+        <div className="tool-cloud" aria-label="Herramientas que manejo">
+          {tools.map((tool) => <span key={tool}>{tool}</span>)}
         </div>
       </div>
     </section>
@@ -308,7 +305,7 @@ function Contact() {
         <div className="contact-action">
           <span>Respuesta por WhatsApp</span>
           <strong>Envíame tu idea, producto o negocio.</strong>
-          <p>Lo reviso contigo y definimos el primer paso sin vueltas.</p>
+          <p>Si ya tienes una idea, producto o video, escríbeme y revisamos el siguiente paso.</p>
           <a className="button primary huge" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">Enviar proyecto <ArrowUpRight /></a>
         </div>
 
