@@ -1,7 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import Lenis from "@studio-freight/lenis";
+import { useMemo, useState } from "react";
 import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
 import CursorGlow from "@/components/CursorGlow";
@@ -303,20 +302,6 @@ function Contact() {
 }
 
 export default function PortfolioExperience() {
-  useEffect(() => {
-    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.86, smoothWheel: true });
-    let frame = 0;
-    const raf = (time: number) => {
-      lenis.raf(time);
-      frame = requestAnimationFrame(raf);
-    };
-    frame = requestAnimationFrame(raf);
-    return () => {
-      cancelAnimationFrame(frame);
-      lenis.destroy();
-    };
-  }, []);
-
   return (
     <>
       <ScrollMeter />

@@ -12,7 +12,6 @@
     "validate:routes": "node scripts/validate-routes.mjs"
   },
   "dependencies": {
-    "@studio-freight/lenis": "^1.0.42",
     "framer-motion": "^12.40.0",
     "lucide-react": "^1.16.0",
     "next": "^16.2.6",
