@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { AnimatePresence, motion, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Mail, MapPin, Menu, Phone, Sparkles, X } from "lucide-react";
 import { useScrollProgress } from "@/hooks/useScrollProgress";
 import { companyReferences, education, method, nav, personalReferences, profile, profileCards, specialties, timeline, tools, workVideos } from "@/lib/content";
@@ -51,14 +51,8 @@ function TopNav() {
 }
 
 function Hero() {
-  const { scrollYProgress } = useScroll();
-  const titleY = useTransform(scrollYProgress, [0, 0.22], [0, -170]);
-  const personY = useTransform(scrollYProgress, [0, 0.2], [0, 72]);
-
   return (
     <section className="hero" id="inicio">
-      <motion.div className="hero-bg-word" style={{ y: titleY }} aria-hidden="true">PORTAFOLIO</motion.div>
-
       <div className="hero-copy">
         <motion.div className="eyebrow" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease }}>
           <Sparkles size={16} /> {profile.heroLine}
@@ -75,13 +69,8 @@ function Hero() {
         </motion.div>
       </div>
 
-      <motion.div className="hero-stage" style={{ y: personY }} initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .9, delay: .18, ease }}>
-        <div className="hero-design-grid" aria-hidden="true" />
-        <div className="hero-static-orb orb-one" aria-hidden="true" />
-        <div className="hero-static-orb orb-two" aria-hidden="true" />
+      <motion.div className="hero-stage" initial={{ opacity: 0, scale: .96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .9, delay: .18, ease }}>
         <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} alt="Retrato creativo de Elquin Hernández" loading="eager" fetchPriority="high" decoding="async" initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .85, delay: .28, ease }} />
-        <img className="floating-object object-star" src={assets.objects.asterisk} alt="" aria-hidden="true" width={180} height={180} decoding="async" />
-        <img className="floating-object object-smile" src={assets.objects.smileOrb} alt="" aria-hidden="true" width={160} height={160} decoding="async" />
         <div className="hero-metric-card metric-top" aria-hidden="true"><strong>Contenido</strong><span>vertical que conecta</span></div>
         <div className="hero-metric-card metric-bottom" aria-hidden="true"><strong>Pauta + ventas</strong><span>criterio comercial</span></div>
         <div className="quick-tags" aria-label="Especialidades rápidas">
@@ -290,10 +279,13 @@ function Contact() {
           <h2>Conversemos sobre tu próximo video o campaña.</h2>
           <p>Portafolio personal de {profile.name}. Producción audiovisual, edición de video, contenido vertical, campañas digitales, Marketplace y diseño comercial.</p>
         </div>
-        <div className="contact-links">
-          <a href={`tel:+57${profile.phone}`}><Phone size={18} /> {profile.phone}</a>
-          <a href={`mailto:${profile.email}`}><Mail size={18} /> {profile.email}</a>
-          <span><MapPin size={18} /> {profile.city}</span>
+        <div className="contact-card">
+          <img className="contact-avatar" src={assets.avatars.me} alt="Avatar de Elquin Hernández" loading="lazy" decoding="async" />
+          <div className="contact-links">
+            <a href={`tel:+57${profile.phone}`}><Phone size={18} /> {profile.phone}</a>
+            <a href={`mailto:${profile.email}`}><Mail size={18} /> {profile.email}</a>
+            <span><MapPin size={18} /> {profile.city}</span>
+          </div>
         </div>
         <a className="button primary huge" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">Iniciar conversación <ArrowUpRight /></a>
       </div>
