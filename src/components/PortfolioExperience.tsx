@@ -76,8 +76,8 @@ function Hero() {
         </motion.div>
       </div>
 
-      <motion.div className="hero-stage" style={{ y: personY }}>
-        <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} alt="Retrato creativo de Elquin Hernández" loading="eager" fetchPriority="high" decoding="async" initial={false} />
+      <motion.div className="hero-stage" style={{ y: personY }} initial={{ opacity: 0, scale: .985 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: .9, delay: .18, ease }}>
+        <motion.img className="hero-person-stack" src={assets.portraits.headStackFade} alt="Retrato creativo de Elquin Hernández" loading="eager" fetchPriority="high" decoding="async" initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .8, delay: .28, ease }} />
         <motion.img className="floating-object object-star" style={{ y: starY }} src={assets.objects.asterisk} alt="" aria-hidden="true" width={180} height={180} decoding="async" />
         <motion.img className="floating-object object-smile" style={{ y: starY }} src={assets.objects.smileOrb} alt="" aria-hidden="true" width={160} height={160} decoding="async" />
         <div className="quick-tags" aria-label="Especialidades rápidas">
@@ -98,13 +98,13 @@ function Profile() {
       </div>
 
       <div className="profile-grid">
-        <article className="portrait-card">
+        <motion.article className="portrait-card" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .28 }} transition={{ duration: .68, ease }}>
           <img src={assets.portraits.sideNeonFade} alt="Elquin Hernández con iluminación naranja" />
           <div>
             <strong>{profile.shortName}</strong>
             <span>{profile.city}</span>
           </div>
-        </article>
+        </motion.article>
         {profileCards.map((card) => (
           <article className="profile-card" key={card.title}>
             <span>{card.title}</span>
@@ -283,27 +283,29 @@ function AvatarReferences() {
 function Contact() {
   return (
     <section className="contact-section" id="contacto">
-      <div className="contact-panel">
+      <motion.div className="contact-panel" initial={{ opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={{ duration: .72, ease }}>
         <div className="contact-copy">
           <span className="section-kicker">Contacto</span>
-          <h2>Conversemos sobre tu próximo video o campaña.</h2>
-          <p>Portafolio personal de {profile.name}. Producción audiovisual, edición de video, contenido vertical, campañas digitales, Marketplace y diseño comercial.</p>
+          <div className="contact-title-row">
+            <img className="contact-apple-icon" src={assets.system.appleIcon} alt="Icono del portafolio" loading="lazy" decoding="async" />
+            <h2>Hagamos que tu próxima campaña se vea mejor y venda más.</h2>
+          </div>
+          <p>Cuéntame qué quieres promocionar y te ayudo a convertirlo en una pieza clara, atractiva y lista para redes.</p>
         </div>
 
-        <aside className="contact-identity" aria-label="Identidad visual de contacto">
-          <img className="contact-avatar" src={assets.avatars.me} alt="Avatar de Elquin Hernández" loading="lazy" decoding="async" />
-          <img className="contact-apple-icon" src={assets.system.appleIcon} alt="Icono del portafolio" loading="lazy" decoding="async" />
-          <strong>{profile.shortName}</strong>
-          <span>Contenido · Pauta · Ventas</span>
-        </aside>
+        <div className="contact-cta-card" aria-label="Llamado a la acción">
+          <span>Respuesta directa</span>
+          <strong>Video · Pauta · Marketplace</strong>
+          <p>Ideal para negocios que necesitan contenido vertical, anuncios o piezas comerciales sin complicarse.</p>
+          <a className="button primary huge" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">Escríbeme por WhatsApp <ArrowUpRight /></a>
+        </div>
 
         <div className="contact-links">
           <a href={`tel:+57${profile.phone}`}><Phone size={18} /> {profile.phone}</a>
           <a href={`mailto:${profile.email}`}><Mail size={18} /> {profile.email}</a>
           <span><MapPin size={18} /> {profile.city}</span>
         </div>
-        <a className="button primary huge" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">Iniciar conversación <ArrowUpRight /></a>
-      </div>
+      </motion.div>
     </section>
   );
 }
