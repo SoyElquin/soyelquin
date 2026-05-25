@@ -118,23 +118,50 @@ function Profile() {
         ))}
       </div>
 
-      <div className="resume-block">
-        <div>
-          <span className="section-kicker">Experiencia</span>
-          {timeline.map((item) => (
-            <article className="timeline-item" key={item.role}>
-              <small>{item.period}</small>
-              <h3>{item.role}</h3>
-              <p>{item.detail}</p>
-            </article>
-          ))}
-        </div>
-        <div>
-          <span className="section-kicker">Formación</span>
-          <ul className="clean-list">
-            {education.map((item) => <li key={item}>{item}</li>)}
-          </ul>
-        </div>
+      <div className="resume-block upgraded-resume">
+        <section className="resume-panel experience-panel" aria-labelledby="experience-title">
+          <div className="resume-panel-head">
+            <span className="section-kicker">Experiencia</span>
+            <h3 id="experience-title">Trabajo aplicado a contenido, pauta y venta digital.</h3>
+          </div>
+
+          <div className="experience-stack">
+            {timeline.map((item, index) => (
+              <article className="experience-item" key={item.role}>
+                <div className="experience-top">
+                  <span className="experience-number">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="experience-period">{item.period}</span>
+                  <span className="experience-label">{item.label}</span>
+                </div>
+                <h4>{item.role}</h4>
+                <p>{item.detail}</p>
+                <div className="experience-tags" aria-label="Áreas trabajadas">
+                  {item.highlights.map((highlight) => <span key={highlight}>{highlight}</span>)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="resume-panel formation-panel" aria-labelledby="formation-title">
+          <div className="resume-panel-head">
+            <span className="section-kicker">Formación</span>
+            <h3 id="formation-title">Base técnica para producir, organizar y optimizar proyectos digitales.</h3>
+          </div>
+
+          <div className="formation-list">
+            {education.map((item, index) => (
+              <article className="formation-item" key={item.program}>
+                <span className="formation-index">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <small>{item.type} · {item.institution}</small>
+                  <h4>{item.program}</h4>
+                  <p>{item.detail}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
       </div>
     </section>
   );

@@ -125,21 +125,45 @@ export const tools = [
 export const timeline = [
   {
     period: "2026 — Actualidad",
-    role: "Independiente en marketing digital y diseño comercial",
-    detail: "Estrategia digital, contenido, pauta, diseño comercial, Marketplace, automatizaciones, mensajes y presencia digital."
+    label: "Independiente",
+    role: "Marketing digital y diseño comercial",
+    detail: "Gestión de contenido, pauta, piezas comerciales, Marketplace, mensajes, automatizaciones y presencia digital para negocios que venden en redes.",
+    highlights: ["Estrategia", "Contenido", "Pauta", "Marketplace"]
   },
   {
     period: "2025 — 2026",
+    label: "Retail",
     role: "Diseñador y creador de contenido digital",
-    detail: "Catálogos mayoristas, campañas, publicaciones en Marketplace, videos verticales y piezas orientadas a retención y conversión."
+    detail: "Creación de catálogos mayoristas, campañas, publicaciones comerciales, videos verticales y piezas orientadas a retención y conversión.",
+    highlights: ["Catálogos", "Reels", "Promociones", "Venta"]
   }
 ];
 
 export const education = [
-  "Técnico en Programación de Software — SENA",
-  "Diplomado en Programación Web — Universidad de Caldas",
-  "Técnico en Sistemas — SENA",
-  "Formación en inteligencia artificial, negocios en línea y herramientas digitales"
+  {
+    program: "Programación de Software",
+    institution: "SENA",
+    type: "Técnico",
+    detail: "Base técnica para comprender sistemas, estructura digital y desarrollo de soluciones."
+  },
+  {
+    program: "Programación Web",
+    institution: "Universidad de Caldas",
+    type: "Diplomado",
+    detail: "Formación enfocada en aplicaciones web, lógica digital y presencia online."
+  },
+  {
+    program: "Sistemas",
+    institution: "SENA",
+    type: "Técnico",
+    detail: "Fundamentos de soporte, herramientas digitales, procesos y operación tecnológica."
+  },
+  {
+    program: "IA, negocios en línea y herramientas digitales",
+    institution: "Formación complementaria",
+    type: "Actualización",
+    detail: "Aprendizaje continuo aplicado a contenido, automatización, análisis y comunicación comercial."
+  }
 ];
 
 export const workVideos = [
