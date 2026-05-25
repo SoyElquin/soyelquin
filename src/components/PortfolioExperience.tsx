@@ -280,21 +280,24 @@ function AvatarReferences() {
 function Contact() {
   return (
     <section className="contact-section" id="contacto">
-      <motion.div className="contact-panel" initial={{ opacity: 0, y: 34 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={{ duration: .72, ease }}>
-        <div className="contact-copy">
-          <span className="section-kicker">Contacto</span>
-          <div className="contact-title-row">
-            <img className="contact-apple-icon" src={assets.system.appleIcon} alt="Icono del portafolio" loading="lazy" decoding="async" />
-            <h2>Hagamos que tu próxima campaña se vea mejor y venda más.</h2>
-          </div>
-          <p>Cuéntame qué quieres promocionar y te ayudo a convertirlo en una pieza clara, atractiva y lista para redes.</p>
+      <motion.div className="contact-panel" initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: .3 }} transition={{ duration: .68, ease }}>
+        <div className="contact-mark" aria-hidden="true">
+          <img className="contact-apple-icon" src={assets.system.appleIcon} alt="" loading="lazy" decoding="async" />
         </div>
 
-        <div className="contact-cta-card" aria-label="Llamado a la acción">
-          <span>Respuesta directa</span>
-          <strong>Video · Pauta · Marketplace</strong>
-          <p>Ideal para negocios que necesitan contenido vertical, anuncios o piezas comerciales sin complicarse.</p>
+        <div className="contact-copy">
+          <span className="section-kicker">Contacto</span>
+          <h2>Conversemos sobre tu próximo video o campaña.</h2>
+          <p>Cuéntame qué quieres vender, mostrar o promocionar. Lo convertimos en contenido claro para redes.</p>
+        </div>
+
+        <div className="contact-actions" aria-label="Acciones de contacto">
           <a className="button primary huge" href={`https://wa.me/57${profile.phone}`} target="_blank" rel="noreferrer">Escríbeme por WhatsApp <ArrowUpRight /></a>
+          <div className="contact-chips" aria-label="Áreas de trabajo">
+            <span>Video</span>
+            <span>Pauta</span>
+            <span>Marketplace</span>
+          </div>
         </div>
 
         <div className="contact-links">
