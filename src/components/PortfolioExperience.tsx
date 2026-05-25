@@ -28,7 +28,7 @@ function TopNav() {
         <span className="brand-avatar"><img src={assets.avatars.me} alt="" aria-hidden="true" /></span>
         <span className="brand-copy">
           <strong>Elquin</strong>
-          <small>Editor audiovisual y marketing</small>
+          <small>CONTENIDO · PAUTA · VENTAS</small>
         </span>
       </a>
 

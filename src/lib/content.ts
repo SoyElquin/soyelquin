@@ -25,7 +25,7 @@ export const profile = {
   heroLine: "Productor audiovisual y marketing",
   heroTitle: "Elquin Hernández",
   manifesto:
-    "Productor audiovisual y estratega de marketing en Montería. Creo contenido vertical, piezas comerciales, campañas y publicaciones para negocios que necesitan comunicar mejor, mostrar sus productos con claridad y convertir redes sociales en oportunidades de venta.",
+    "Creo contenido vertical, piezas comerciales y campañas digitales para marcas que necesitan comunicar mejor, mostrar sus productos y convertir las redes sociales en oportunidades de venta.",
   ctaPrimary: "Hablemos por WhatsApp",
   ctaSecondary: "Ver videos"
 };
